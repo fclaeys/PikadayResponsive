@@ -4386,7 +4386,10 @@
 					var date = moment($(this).val(), settings.displayFormat);
 					var val;
 
-					if (!date.isValid() || date.unix() < 0) {
+					//if (!date.isValid() || date.unix() < 0) {
+                    // negative timestamp is for date before 1970
+
+					if (!date.isValid()) {
 						// Date is not valid
 						input.addClass("is-invalid");
 						picker.gotoToday();
